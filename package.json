@@ -1,0 +1,36 @@
+{
+  "name": "@sidvsai/samya-shared",
+  "version": "0.0.1",
+  "description": "Shared TypeScript types, constants, and utilities for Samya expense tracker",
+  "keywords": [
+    "samya",
+    "expense",
+    "types",
+    "typescript",
+    "shared"
+  ],
+  "homepage": "https://github.com/SiddharthSai4701/samya-shared#readme",
+  "bugs": {
+    "url": "https://github.com/SiddharthSai4701/samya-shared/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiddharthSai4701/samya-shared.git"
+  },
+  "license": "MIT",
+  "author": "Siddharth Vijay Sai",
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "typescript": "^5.9.3"
+  }
+}
