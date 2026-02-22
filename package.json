@@ -1,6 +1,6 @@
 {
   "name": "@sidvsai/samya-shared",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Shared TypeScript types, constants, and utilities for Samya expense tracker",
   "keywords": [
     "samya",

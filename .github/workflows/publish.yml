@@ -21,6 +21,23 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Debug - Check npmrc
+        run: |
+          echo "=== .npmrc contents ==="
+          cat ~/.npmrc || echo "No .npmrc found"
+          echo "=== Registry config ==="
+          npm config get registry
+
+      - name: Debug - Check if secret exists
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "NPM_TOKEN secret is empty or not set"
+          else
+            echo "NPM_TOKEN secret is set (length: ${#NODE_AUTH_TOKEN})"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Install dependencies
         run: npm ci
 
@@ -28,6 +45,6 @@ jobs:
         run: npm run build
 
       - name: Publish to npm
-        run: npm publish --access public --provenance
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
